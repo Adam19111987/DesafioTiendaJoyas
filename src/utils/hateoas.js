@@ -4,7 +4,9 @@ const prepararHateoas =  async(entity, data) => {
       name : d.nombre,
       stock : d.stock,
       precio : d.precio,
-      href : `/${entity}/${d.id}`,
+      categoria : d.categoria,
+      metal : d.metal,
+      href : `/${entity}/${d.id}`
     
     }
 

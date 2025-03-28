@@ -1,5 +1,6 @@
 import format from "pg-format"
 import pool from "../../config/db/connect.js"
+import createQuery from "../utils/createquery.js";
 
 
 const dataGetJoyas = async( limit = 6 , order_by = "id_ASC", page = 1) => {
@@ -14,4 +15,13 @@ const dataGetJoyas = async( limit = 6 , order_by = "id_ASC", page = 1) => {
   return response.rows;
 }
 
-export{dataGetJoyas}
+const getDataFiltrer = async(filters) => {
+  const { consulta, valores} = createQuery("inventario", filters);
+  const response = await pool.query( consulta, valores)
+  return response.rows;
+}
+
+
+
+export{dataGetJoyas, getDataFiltrer}
+
