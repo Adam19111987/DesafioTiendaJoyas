@@ -5,7 +5,7 @@ const createQuery = (tabla, filtros) => {
   }
 
   
-  const camposPermitidos = [ "precio", "stock", "categoria", "metal"];
+  const camposPermitidos = ["precio", "categoria", "metal"];
 
   
   let consulta = `SELECT * FROM ${tabla} WHERE 1=1`;
@@ -13,15 +13,25 @@ const createQuery = (tabla, filtros) => {
 
   
   Object.entries(filtros).forEach(([campo, valor]) => {
-    if (!camposPermitidos.includes(campo)) {
+  
+    if (!camposPermitidos.includes(campo) && campo !== "precio_max" && campo !== "precio_min") {
       throw new Error(`El campo "${campo}" no está permitido.`);
     }
-    valores.push(valor);
-    consulta += ` AND ${campo} = $${valores.length}`;
+
+    if (campo === "precio_max") {
+      consulta += ` AND precio <= $${valores.length + 1}`;
+      valores.push(valor);
+    } else if (campo === "precio_min") {
+      consulta += ` AND precio >= $${valores.length + 1}`;
+      valores.push(valor);
+    } else {
+     
+      consulta += ` AND ${campo} = $${valores.length + 1}`;
+      valores.push(valor);
+    }
   });
 
-  return { consulta, valores };  
+  return { consulta, valores };
 };
 
 export default createQuery;
-
