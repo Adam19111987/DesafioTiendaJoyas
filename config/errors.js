@@ -1,5 +1,5 @@
 const ERRORS = [
-  { code: "23502", type: "db", status: 400, message: "El campo destino o presupuesto no puede estar vacío" },
+  
   { code: "23505", type: "db", status: 400, message: "Violación de restricción de unicidad" },
   { code: "42601", type: "db", status: 400, message: "Error de sintaxis en la consulta SQL" },
   { code: "50000", type: "server", status: 500, message: "Internal server error" },
