@@ -30,8 +30,12 @@ const getjoyasfiltros = async(req, res) => {
   }
 }
 
+const getrutanoencontrada = (req, res) => {
+  return res.status(404).json({error : "Esta ruta no existe"})
+}
 
 
 
 
-export{getjoyas, getjoyasfiltros}
+
+export{getjoyas, getjoyasfiltros, getrutanoencontrada}
