@@ -1,5 +1,5 @@
 import {prepararHateoas} from "../utils/hateoas.js"
-// import {findERR} from "../utils/find.error.utils.js"
+import {findERR} from "../utils/find.error.utils.js"
 import {dataGetJoyas, getDataFiltrer} from "../models/joyas.models.js"
 
 const getjoyas = async(req, res) => {
@@ -12,8 +12,8 @@ const getjoyas = async(req, res) => {
 res.status(200).json({ joyas: joyasHateoas})
 }
   catch(error){
-
-  return res.status(404).json({message : error})
+  const findError = findERR(error.code)  
+  return res.status(findError[0].status).json({error : findError[0].message, type : findError[0].type})
   }
 
 }
@@ -25,7 +25,8 @@ const getjoyasfiltros = async(req, res) => {
    
     res.status(200).json(joyas)
   }catch(error){
-    return res.status(404).json({message : error})
+    const findError = findERR(error.code) 
+    return res.status(findError[0].status).json({error : findError[0].message, type : findError[0].type})
   }
 }
 
