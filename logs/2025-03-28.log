@@ -1,0 +1,16 @@
+
+Started GET /api/joyas/filtros?metal=plata for :: ::ffff:127.0.0.1 at Fri Mar 28 2025 19:24:49 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 11 ms Request ID: [6b375302-0b6b-4d89-bcd4-5ac4941a9832]
+
+Started GET /api/joyas/filtros for :: ::ffff:127.0.0.1 at Fri Mar 28 2025 19:26:47 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 404 message:  Time response: 11 ms Request ID: [b71c6353-e843-4eec-8dc1-c50f3d7d6eb7]
+
+Started GET /api/joyas/filtros?metal=plata for :: ::ffff:127.0.0.1 at Fri Mar 28 2025 19:29:45 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 192 ms Request ID: [b7072bb0-898d-430a-a288-e9ffdfbaa736]
+
+Started GET /api/joyas/filtros?metal=plata&precio_min=15000 for :: ::ffff:127.0.0.1 at Fri Mar 28 2025 19:29:53 GMT-0300 (hora de verano de Chile)
+  Parameters in body: {}
+Completed: 200 message:  Time response: 15 ms Request ID: [0c759cc1-390d-447b-b39f-decc17ba901f]
